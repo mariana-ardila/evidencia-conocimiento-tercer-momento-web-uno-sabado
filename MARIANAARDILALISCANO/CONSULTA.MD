@@ -199,6 +199,51 @@ Ejemplo:
 * **4.2.** ¿Cómo resuelven las promesas el problema del "Callback Hell"? Explica el papel que juegan los métodos `.then()`, `.catch()` y `.finally()` en el manejo de una promesa.
 
 **[ESPACIO PARA TU RESPUESTA 4]**
+4.1
+¿Qué es una Promesa (Promise) en JavaScript?
+
+Una Promise es un objeto especial en JavaScript que representa el resultado eventual de una operación asíncrona.
+Es como una "promesa en la vida real": te promete que en el futuro te dará una respuesta, que puede ser:
+
+un éxito (todo salió bien), o
+un error (algo salió mal).
+Mientras tanto, queda en espera.
+
+1. Pending (pendiente)
+
+Es el estado inicial, cuando la promesa aún no se ha resuelto ni rechazado.
+Ejemplo: estás esperando que cargue una foto o que llegue una respuesta del servidor.
+
+2. Fulfilled (cumplida / resuelta)
+
+Significa que la operación asíncrona terminó con éxito.
+La promesa devuelve un valor.
+Ejemplo: el servidor te devolvió los datos que pediste.
+
+3. Rejected (rechazada)
+
+Significa que la operación falló.
+La promesa devuelve una razón o error.
+Ejemplo: no había internet o la URL era incorrecta.
+
+4.2
+¿Cómo resuelven las promesas el problema del "Callback Hell"? Explica el papel que juegan los métodos `.then()`, `.catch()` y `.finally()` en el manejo de una promesa.
+
+Con las Promesas, en lugar de tener funciones dentro de funciones, se pueden encadenar resultados de manera lineal, lo que hace que el flujo sea más claro y limpio.
+
+Papel de cada método
+
+.then() → Se ejecuta cuando la promesa se cumple (fulfilled).
+Recibe el resultado y lo pasa a la siguiente operación.
+
+.catch() → Se ejecuta si ocurre un error (rejected).
+Permite manejar todos los errores en un solo lugar, sin anidar.
+
+.finally() → Se ejecuta siempre, tanto si la promesa se resolvió como si falló.
+Sirve para limpiar recursos, ocultar un “cargando...”, o cerrar procesos.
+
+Las Promesas convierten el código en un flujo claro y ordenado.
+
 
 ---
 
@@ -209,3 +254,7 @@ Ejemplo:
 * **5.3.** Tomando como base el código que creaste para la pregunta 4.3, reescríbelo utilizando la sintaxis `async/await` y un bloque `try...catch` para manejar tanto el caso de éxito como el de error.
 
 **[ESPACIO PARA TU RESPUESTA 5]**
+
+
+
+
