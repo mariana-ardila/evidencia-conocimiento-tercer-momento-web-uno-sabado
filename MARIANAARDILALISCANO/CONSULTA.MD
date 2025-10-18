@@ -38,6 +38,40 @@ explotar(); // Llamada inicial
 * **2.2.** Investiga en internet sobre el término **"Callback Hell"** o **"Pyramid of Doom"**. Pega un ejemplo de código que lo ilustre y explica por qué esa estructura es problemática para la legibilidad y el mantenimiento del código a largo plazo.
 
 **[ESPACIO PARA TU RESPUESTA 2]**
+1. Un callback en JavaScript es, en palabras simples, una función que se pasa como argumento a otra función para que esta la ejecute después de terminar su tarea.
+En el contexto asíncrono, los callbacks se usaban sobre todo para esperar a que algo terminara sin bloquear el programa.
+
+Por ejemplo:
+
+Hacer una petición a un servidor.
+Leer un archivo desde el disco.
+Esperar un temporizador.
+
+2. Cuando tienes que hacer muchas tareas una detrás de otra en JavaScript (por ejemplo: primero leer datos, luego guardarlos, luego mostrarlos), y cada tarea usa un callback, terminas con funciones dentro de funciones dentro de funciones....
+
+Eso hace que el código se vea como una pirámide hacia la derecha → difícil de leer, de mantener y de arreglar si algo falla.
+
+// Paso 1: conseguir ingredientes
+getIngredients(function(ingredients) {
+  // Paso 2: preparar la masa
+  makeDough(ingredients, function(dough) {
+    // Paso 3: hornear la pizza
+    bakePizza(dough, function(pizza) {
+      // Paso 4: entregar la pizza
+      deliverPizza(pizza, function(result) {
+        console.log("🍕 Pizza lista para el cliente:", result);
+      });
+    });
+  });
+});
+
+¿Por qué es un problema?
+
+Mucha indentación → el código se va “metiendo hacia la derecha” y se hace feo.
+Difícil de leer → si tienes 5, 6 o más pasos, es complicado seguir la lógica.
+Difícil de mantener → si quieres cambiar solo el paso 2, debes meterte dentro de varios niveles.
+Manejo de errores complicado → hay que poner comprobaciones en cada nivel.
+
 
 ---
 
