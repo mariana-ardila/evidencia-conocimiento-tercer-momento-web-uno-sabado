@@ -90,6 +90,107 @@ Manejo de errores complicado → hay que poner comprobaciones en cada nivel.
 
 **[ESPACIO PARA TU RESPUESTA 3]**
 
+3.1 Una API es una puerta de entrada que permite que dos programas distintos hablen entre sí.
+
+Tú haces una petición (como pedir un plato).
+La API lleva tu pedido al sistema.
+El sistema devuelve una respuesta (como la comida servida).
+
+3.2 Una API REST es una forma organizada y estandarizada de diseñar APIs que permiten crear, leer, actualizar y eliminar recursos a través de internet usando HTTP.
+
+Caracterpisticas: 
+HTTP estándar: usa métodos como GET, POST, PUT/PATCH y DELETE.
+Recursos con URL: cada entidad (usuarios, productos, etc.) tiene una dirección única.
+Stateless: cada petición es independiente, la información viaja en cada solicitud.
+Datos en formato común: generalmente JSON.
+Interfaz uniforme: reglas claras y consistentes, fáciles de entender y usar.
+
+3.3
+Un endpoint es como la dirección exacta (URL) dentro de una API a la que puedes hacer una petición para obtener, crear o modificar un recurso específico.
+Es el punto final de acceso a un recurso.
+
+Endpoint:
+/character/2
+Este es el recurso al que estás accediendo.
+
+id: 2 → es el personaje con ID 2.
+name: "Morty Smith".
+status: "Alive" → está vivo.
+species: "Human".
+origin y location: indican dónde nació y dónde está actualmente.
+image: URL de la imagen/avatar de Morty.
+episode: lista de episodios en los que aparece.
+
+
+3.4 ¿Qué es Postman o Thunder Client?
+
+Son herramientas para probar y consumir APIs sin necesidad de escribir código desde el inicio.
+En vez de armar un programa solo para ver si una API responde, usas estas herramientas para enviar peticiones y ver las respuestas fácilmente.
+
+Función principal en el desarrollo de software
+
+Permiten hacer solicitudes HTTP (GET, POST, PUT, DELETE, etc.) a una API.
+Te muestran la respuesta completa: datos en JSON, códigos de estado (200, 404, 500), tiempos de respuesta, encabezados, etc.
+Sirven para probar y depurar APIs mientras las estás desarrollando o consumiendo.
+Te ayudan a documentar y organizar las diferentes peticiones a una API (colecciones en Postman, perfiles en Thunder Client).
+
+3.5 100–199 → Respuestas informativas
+
+Propósito: Indican que la petición fue recibida y el servidor todavía la está procesando.
+
+El cliente debe esperar más instrucciones antes de continuar.
+
+No suelen usarse mucho en el día a día.
+
+🔹 Ejemplo:
+
+100 Continue → El servidor recibió los encabezados y dice al cliente: “ok, sigue enviando el resto de la petición”.
+
+ 200–299 → Respuestas exitosas
+
+Propósito: Significa que la petición del cliente fue entendida, procesada y completada correctamente.
+
+🔹 Ejemplo:
+
+200 OK → Todo salió bien, el servidor devuelve la respuesta solicitada.
+
+201 Created → Algo nuevo fue creado en el servidor (por ejemplo, al registrar un usuario).
+
+300–399 → Redirecciones
+
+ Propósito: Indican que el cliente debe tomar una acción adicional, normalmente seguir otra URL porque el recurso se movió o cambió de lugar.
+
+🔹 Ejemplo:
+
+301 Moved Permanently → El recurso se movió a otra dirección (redirección permanente).
+
+302 Found → Redirección temporal a otro recurso.
+
+ 400–499 → Errores del cliente
+
+Propósito: Significa que la petición enviada por el cliente está mal o no puede procesarse.
+
+El error está del lado del usuario o aplicación que hace la petición.
+
+🔹 Ejemplo:
+
+400 Bad Request → La petición tiene errores de sintaxis o parámetros inválidos.
+
+401 Unauthorized → No tienes autorización (falta autenticación).
+
+404 Not Found → El recurso no existe (URL incorrecta o eliminado).
+
+500–599 → Errores del servidor
+
+Propósito: Significa que la petición era correcta, pero el servidor falló al procesarla.
+
+Aquí el problema no es del cliente, sino del servidor.
+
+Ejemplo:
+
+500 Internal Server Error → Error genérico del servidor.
+
+503 Service Unavailable → El servidor está sobrecargado o en mantenimiento.
 ---
 
 ### Pregunta 4: Las Promesas (La solución elegante)
