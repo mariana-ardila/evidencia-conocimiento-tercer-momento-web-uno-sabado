@@ -1,6 +1,6 @@
 # Rúbrica de Evaluación: Taller de Asincronismo y Flujo de Git
 
-**Nombre del Estudiante:** _________________________
+**Nombre del Estudiante:** Mariana Ardila Liscano_
 **Calificación Final:** _______ / 100
 
 ---
