@@ -255,6 +255,71 @@ Las Promesas convierten el código en un flujo claro y ordenado.
 
 **[ESPACIO PARA TU RESPUESTA 5]**
 
+5.1 ¿Qué son async y await?
+
+Son palabras clave en JavaScript introducidas en ES2017 (ES8) que permiten trabajar con código asíncrono de una manera más clara y legible.
+async: se coloca antes de una función para indicar que esa función devolverá una promesa.
+
+await: solo puede usarse dentro de funciones marcadas con async.
+Hace que el código espere la resolución de una promesa antes de continuar con la siguiente línea.
+
+Antes de async/await, se usaban promesas con .then() y .catch().
+El problema es que cuando había varias llamadas asíncronas encadenadas, el código se volvía más difícil de leer y mantener.
+
+Ventajas de async/await sobre .then()/.catch()
+
+Código más legible y parecido a lo síncrono.
+→ Se entiende el flujo paso a paso.
+
+Manejo de errores más claro con try...catch.
+
+Evita el "callback hell" o anidaciones profundas que complican el mantenimiento.
+
+Depuración más fácil, porque las líneas se leen como un flujo normal.
 
 
 
+
+5.2 Cuando se dice que async/await es “azúcar sintáctico” sobre las Promesas, significa que:
+
+No crean una nueva forma de manejar asincronía.
+En realidad, siguen usando Promesas “por debajo”, solo que nos dan una sintaxis más clara y amigable para escribir el mismo código.
+
+¿Qué pasa realmente?
+
+Cuando escribes async function, JavaScript automáticamente envuelve el valor de retorno en una Promesa.
+Cuando usas await, en realidad estás diciendo:
+“Espera a que esta Promesa se resuelva antes de continuar”.
+Así que lo que hace async/await es azúcar sintáctico porque:
+-No cambia la base (las Promesas siguen siendo las protagonistas).
+-Solo nos da una forma más dulce y legible de escribir el mismo código.
+
+5.3
+async function obtenerPersonaje() {
+  try {
+    // 1. Obtener lista de personajes
+    const res1 = await fetch("https://rickandmortyapi.com/api/character");
+    if (!res1.ok) throw new Error("Error al obtener personajes");
+    const data = await res1.json();
+
+    // 2. Tomar el primer personaje
+    const primerPersonaje = data.results[0];
+
+    // 3. Obtener detalle del personaje por id
+    const res2 = await fetch(`https://rickandmortyapi.com/api/character/${primerPersonaje.id}`);
+    if (!res2.ok) throw new Error("Error al obtener detalle del personaje");
+    const personajeDetalle = await res2.json();
+
+    // Caso de éxito
+    console.log("🎉 Personaje obtenido:");
+    console.log(`Nombre: ${personajeDetalle.name}`);
+    console.log(`Especie: ${personajeDetalle.species}`);
+    console.log(`Estado: ${personajeDetalle.status}`);
+  } catch (error) {
+    // Caso de error
+    console.error("Ocurrió un problema:", error.message);
+  }
+}
+
+// Ejecutamos la función
+obtenerPersonaje();
